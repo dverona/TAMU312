@@ -16,47 +16,47 @@ bool* Oneto8bit(bool* output, bool input) {
 	output[1] = input;
 	output[0] = input;
 	return output;
-	}
+}
 
 bool Eightto1bit(bool output, bool* input) {
 	output = input[7];
 	return output;
-	}
+}
 
 // Return the value of a bit within a byte
-bool getValue(bool byte[8], int offset) {
+bool GetValue(bool byte[8], int offset) {
 	return byte[offset];
-	}
+}
 
 // Write a new value to a bit within a byte
-void writeValue(bool* byte, int offset, bool value) {
+void WriteValue(bool* byte, int offset, bool value) {
 	byte[offset] = value;
 	return;
-	}
+}
 
 // Print out binary interpretation of a byte
-void printValue(bool byte[8]) {
+void PrintValue(bool byte[8]) {
 	int* ans = new int[8];
 	for( int i = 0; i < 7; i ++) {
 		if (byte[i] == false) ans[i] = 0;
 		else ans[i] = 1;
-		}
+	}
 	std::cout<<ans;
 	return;
-	}
+}
 
 // Print out decimal interpretation of a byte
-void printValueInDecimal(bool byte[8]) {
+void PrintValueInDecimal(bool byte[8]) {
 	int ans = 0;
 	for( int i = 0; i < 7; i ++) {
 		if (byte[i] == true) ans = ans + (2^i);
-		}
+	}
 	std::cout<<ans;
 	return;
-	}
+}
 
 // 8-bit Mux
-bool* mux(bool* output, bool operation, bool input1[8], bool input2[8]) {
+bool* Mux8(bool* output, bool operation, bool input1[8], bool input2[8]) {
 	bool* ans = new bool[8];
 	ans[7] = Mux(operation, input1[7], input2[7]);
 	ans[6] = Mux(operation, input1[6], input2[6]);
@@ -68,10 +68,10 @@ bool* mux(bool* output, bool operation, bool input1[8], bool input2[8]) {
 	ans[0] = Mux(operation, input1[0], input2[0]);
 	output = ans;
 	return ans;
-	}
+}
 
 // 8-bit Addition Unsigned
-bool* addu(bool* output, bool input1[8], bool input2[8]) {
+bool* Addu(bool* output, bool input1[8], bool input2[8]) {
 	// LSB
 	bool i17 = input1[7];
 	bool i27 = input2[7];
@@ -129,10 +129,10 @@ bool* addu(bool* output, bool input1[8], bool input2[8]) {
 	output[1] = sum1;
 	output[0] = sum0;
 	return output;
-	}
+}
 
 // 8-bit Negating Function
-bool* negate(bool* output, bool input[8]) {
+bool* Negate(bool* output[8], bool input[8]) {
 	bool* ans = new bool[8];
 	ans[7] = Not(input[7]);
 	ans[6] = Not(input[6]);
@@ -143,29 +143,31 @@ bool* negate(bool* output, bool input[8]) {
 	ans[1] = Not(input[1]);
 	ans[0] = Not(input[0]);
 	bool* one = new bool[8];
+	one[7] = 1;
+	one[6] = one[5] = one[4] = one[3] = one[2] = one[1] = one[0] = 0;
 	addu(output, ans, one);
 	return output;
-	}
+}
 
 // 8-bit Subtraction
-bool* subu(bool* output, bool input1[8], bool input2[8]) {
+bool* Subu(bool* output, bool input1[8], bool input2[8]) {
 	bool* neg2 = new bool[8];
 	negate(neg2, input2);
 	addu(output, input1, neg2);
 	return output;
-	}
+}
 
 // 8-bit Equality
-bool* equal(bool* output, bool input1[8], bool input2[8]) {
+bool* Equal(bool* output, bool input1[8], bool input2[8]) {
 	bool* neg2 = new bool[8];
 	negate(neg2, input2);
 	addu(output, input1, neg2);
 	return output;
 	//Add bitwise Not
-	}
+}
 
 // 8-bit Greater-Than
-bool* greaterthan(bool* output, bool input1[8], bool input2[8]) {
+bool* GreaterThan(bool* output, bool input1[8], bool input2[8]) {
 	// if input1 > input2, input1 - input2 == pos
 	bool* temp = new bool[8];
 	bool ans = false;
@@ -173,10 +175,10 @@ bool* greaterthan(bool* output, bool input1[8], bool input2[8]) {
 	ans = Mux(temp[0], 0, 1);
 	output = Oneto8bit(output, ans);
 	return output;
-	}
+}
 
 // 8-bit Less-Than
-bool* lessthan(bool* output, bool input1[8], bool input2[8]) {
+bool* LessThan(bool* output, bool input1[8], bool input2[8]) {
 	// if input1 < input2, input1 - input2 == neg
 	bool* eq = new bool[8];
 	bool* gt = new bool[8];
@@ -186,10 +188,10 @@ bool* lessthan(bool* output, bool input1[8], bool input2[8]) {
 	ans = Not(And(eq, gt));
 	output = Oneto8bit(output, ans);
 	return output;
-	}
+}
 
 // 8-bit bitwise and
-bool* And(bool* output, bool input1[8], bool input2[8]) {
+bool* And8(bool* output, bool input1[8], bool input2[8]) {
 	output[7] = And(input1[7], input2[7]);
 	output[6] = And(input1[6], input2[6]);
 	output[5] = And(input1[5], input2[5]);
@@ -199,10 +201,10 @@ bool* And(bool* output, bool input1[8], bool input2[8]) {
 	output[1] = And(input1[1], input2[1]);
 	output[0] = And(input1[0], input2[0]);
 	return output;
-	}
+}
 
 // 8-bit bitwise or
-bool* Or(bool* output, bool input1[8], bool input2[8]) {
+bool* Or8(bool* output, bool input1[8], bool input2[8]) {
 	output[7] = Or(input1[7], input2[7]);
 	output[6] = Or(input1[6], input2[6]);
 	output[5] = Or(input1[5], input2[5]);
@@ -212,10 +214,10 @@ bool* Or(bool* output, bool input1[8], bool input2[8]) {
 	output[1] = Or(input1[1], input2[1]);
 	output[0] = Or(input1[0], input2[0]);
 	return output;
-	}
+}
 
 // 8-bit left shift
-bool* shiftLeft(bool* output, bool input[8]) {
+bool* ShiftLeft(bool* output, bool input[8]) {
 	output[0] = input[1];
 	output[1] = input[2];
 	output[2] = input[3];
@@ -225,10 +227,10 @@ bool* shiftLeft(bool* output, bool input[8]) {
 	output[6] = input[7];
 	output[7] = 0;
 	return output;
-	}
+}
 
 // 8-bit right shift
-bool* shiftRight(bool* output, bool input[8]) {
+bool* ShiftRight(bool* output, bool input[8]) {
 	output[0] = 0;
 	output[1] = input[0];
 	output[2] = input[1];
@@ -238,7 +240,7 @@ bool* shiftRight(bool* output, bool input[8]) {
 	output[6] = input[5];
 	output[7] = input[6];
 	return output;	
-	}
+}
 
 // For Compiling Purposes
 /*
