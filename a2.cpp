@@ -243,8 +243,8 @@ bool* ShiftRight(bool* output, bool input[8]) {
 }
 
 // For Compiling Purposes
-
+/*
 int main(){
 	return 0;
 }
-
+*/
