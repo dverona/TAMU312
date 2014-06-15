@@ -145,23 +145,23 @@ bool* Negate(bool* output[8], bool input[8]) {
 	bool* one = new bool[8];
 	one[7] = 1;
 	one[6] = one[5] = one[4] = one[3] = one[2] = one[1] = one[0] = 0;
-	addu(output, ans, one);
-	return output;
+	Addu(*output, ans, one);
+	return *output;
 }
 
 // 8-bit Subtraction
 bool* Subu(bool* output, bool input1[8], bool input2[8]) {
 	bool* neg2 = new bool[8];
-	negate(neg2, input2);
-	addu(output, input1, neg2);
+	Negate(&neg2, input2);
+	Addu(output, input1, neg2);
 	return output;
 }
 
 // 8-bit Equality
 bool* Equal(bool* output, bool input1[8], bool input2[8]) {
 	bool* neg2 = new bool[8];
-	negate(neg2, input2);
-	addu(output, input1, neg2);
+	Negate(&neg2, input2);
+	Addu(output, input1, neg2);
 	return output;
 	//Add bitwise Not
 }
@@ -171,7 +171,7 @@ bool* GreaterThan(bool* output, bool input1[8], bool input2[8]) {
 	// if input1 > input2, input1 - input2 == pos
 	bool* temp = new bool[8];
 	bool ans = false;
-	subu(temp, input1, input2);
+	Subu(temp, input1, input2);
 	ans = Mux(temp[0], 0, 1);
 	output = Oneto8bit(output, ans);
 	return output;
@@ -183,8 +183,8 @@ bool* LessThan(bool* output, bool input1[8], bool input2[8]) {
 	bool* eq = new bool[8];
 	bool* gt = new bool[8];
 	bool ans = false;
-	equal(eq, input1, input2);
-	greaterthan(gt, input1, input2);
+	Equal(eq, input1, input2);
+	GreaterThan(gt, input1, input2);
 	ans = Not(And(eq, gt));
 	output = Oneto8bit(output, ans);
 	return output;
@@ -243,8 +243,8 @@ bool* ShiftRight(bool* output, bool input[8]) {
 }
 
 // For Compiling Purposes
-/*
+
 int main(){
 	return 0;
 }
-*/
+
