@@ -51,6 +51,9 @@ bool* alu(bool instruction[8], bool input1[8], bool input2[8]) {
 	return output;
 }
 
+// For compiling purposes
+/*
 int main() {
 	return 0;
 }
+*/
