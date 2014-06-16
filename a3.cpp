@@ -7,8 +7,6 @@
 #include "a5.cpp"
 #include <iostream>
 
-// Global variable for Counter
-
 bool* alu(bool instruction[8], bool input1[8], bool input2[8]) {
 	//and instruction with each condition, or solutions
 	bool* alu0 = new bool[8];
@@ -52,8 +50,7 @@ bool* alu(bool instruction[8], bool input1[8], bool input2[8]) {
 }
 
 // For compiling purposes
-/*
+
 int main() {
 	return 0;
 }
-*/

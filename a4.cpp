@@ -64,7 +64,7 @@ bool* Add(bool* output, bool input1[8], bool input2[8]) {
 
 bool* Sub(bool* output, bool input1[8], bool input2[8]) {
 	bool* neg2 = new bool[8];
-	negate(neg2, input2);
-	add(output, input1, neg2);
+	Negate(&neg2, input2);
+	Add(output, input1, neg2);
 	return output;
 }
