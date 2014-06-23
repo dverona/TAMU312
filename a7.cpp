@@ -62,10 +62,12 @@ void EX() {
 
 
 void MEM() {
-	
+	if (!current[3]) {
+		mem(rt, rs, 0, 1);
+	}
 }
 
 
 void WB() {
-	current[1]
+	if (current[3]) current[1] = rd;
 }

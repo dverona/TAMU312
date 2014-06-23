@@ -1,8 +1,8 @@
 // CSCE 312-100
 // Summer I 2014
 // David Verona
-// a2.cpp
-#include "a1.cpp"
+// p2.cpp
+#include "p1.cpp"
 
 // Helper Functions
 
