@@ -38,3 +38,8 @@ void assert_bitwise_eq_helper(bool* v1, bool* v2, int len,
   }
 }
 
+<<<<<<< HEAD
+=======
+vector<TestCase> TestCaseRegisterer::test_cases;
+
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9

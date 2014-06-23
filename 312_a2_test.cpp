@@ -81,12 +81,17 @@ test_case(p3, alu_neg) {
 }
 
 test_case(p3, alu_eq) {
+<<<<<<< HEAD
   bool op[8], a[8], b[8], c[8];
+=======
+  bool op[8], a[8], b[8];
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
   bool output[8];
 
   to_bits8(op, 3);
   to_bits8(a, 19);
   to_bits8(b, 19);
+<<<<<<< HEAD
   to_bits8(c, 1); // expected
   alu(op, output, a, b);
   assert_eq8(c, output);
@@ -100,11 +105,25 @@ test_case(p3, alu_eq) {
 
 test_case(p3, alu_lt) {
   bool op[8], a[8], b[8], c[8];
+=======
+  alu(op, output, a, b);
+  assert_true(output[0]); // test only the least bit
+
+  to_bits8(a, 19);
+  to_bits8(b, 83);
+  alu(op, output, a, b);
+  assert_false(output[0]);
+}
+
+test_case(p3, alu_lt) {
+  bool op[8], a[8], b[8];
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
   bool output[8];
 
   to_bits8(op, 4);
   to_bits8(a, 127);
   to_bits8(b, 128);
+<<<<<<< HEAD
   to_bits8(c, 1); // expected
   alu(op, output, a, b);
   assert_eq8(c, output);
@@ -118,11 +137,25 @@ test_case(p3, alu_lt) {
 
 test_case(p3, alu_gt) {
   bool op[8], a[8], b[8], c[8];
+=======
+  alu(op, output, a, b);
+  assert_true(output[0]);
+
+  to_bits8(a, 128);
+  to_bits8(b, 127);
+  alu(op, output, a, b);
+  assert_false(output[0]);
+}
+
+test_case(p3, alu_gt) {
+  bool op[8], a[8], b[8];
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
   bool output[8];
 
   to_bits8(op, 5);
   to_bits8(a, 128);
   to_bits8(b, 127);
+<<<<<<< HEAD
   to_bits8(c, 1); // expected
   alu(op, output, a, b);
   assert_eq8(c, output);
@@ -132,6 +165,15 @@ test_case(p3, alu_gt) {
   to_bits8(c, 0); // expected
   alu(op, output, a, b);
   assert_eq8(c, output);
+=======
+  alu(op, output, a, b);
+  assert_true(output[0]);
+
+  to_bits8(a, 127);
+  to_bits8(b, 128);
+  alu(op, output, a, b);
+  assert_false(output[0]);
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 }
 
 test_case(p3, alu_and) {
@@ -275,6 +317,7 @@ test_case(p5, alu_div) {
 }
 
 int main(int argc, char** argv) {
+<<<<<<< HEAD
   run_test_case(p3, alu_addu);
   run_test_case(p3, alu_subu);
   run_test_case(p3, alu_neg);
@@ -292,6 +335,9 @@ int main(int argc, char** argv) {
   run_test_case(p5, alu_divu);
   run_test_case(p5, alu_div);
 
+=======
+  TestCaseRegisterer::run_test_cases();
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
   std::cout << "Done." << std::endl;
   return 0;
 }

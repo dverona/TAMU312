@@ -247,6 +247,7 @@ test_case(p2, shiftRight) {
 }
 
 int main(int argc, char** argv) {
+<<<<<<< HEAD
   run_test_case(basic_functions, And);
   run_test_case(basic_functions, Or);
   run_test_case(basic_functions, Not);
@@ -270,6 +271,9 @@ int main(int argc, char** argv) {
   run_test_case(p2, shiftLeft);
   run_test_case(p2, shiftRight);
 
+=======
+  TestCaseRegisterer::run_test_cases();
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
   std::cout << "Done." << std::endl;
   return 0;
 }

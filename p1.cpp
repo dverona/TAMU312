@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // CSCE 312-100
 // Summer I 2014
 // David Verona
@@ -66,6 +67,10 @@ void ResetFunctionCount() {
 	counter = 0;
 	return;
 }
+=======
+#include "basic_functions.h"
+#include "p1.h"
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 
 // Simple 1 bit XOR
 bool XOR(bool a, bool b){
@@ -84,7 +89,11 @@ bool Mux(bool operation, bool output_if_true, bool output_if_false) {
 }
 
 // Simple 1 bit Sum (XOR)
+<<<<<<< HEAD
 bool SumNoCarryout(bool a, bool b) {
+=======
+bool Sum(bool a, bool b) {
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 	return XOR(a, b);
 }
 
@@ -103,6 +112,7 @@ bool Equal(bool a, bool b) {
 }
 
 bool Sum(bool a, bool b, bool carry) {
+<<<<<<< HEAD
 	bool ab = SumNoCarryout(a, b);
 	bool ans = SumNoCarryout(ab, carry);
 	return ans;
@@ -114,3 +124,10 @@ int main() {
 	return 0;
 	}
 */
+=======
+	bool ab = Sum(a, b);
+	bool ans = Sum(ab, carry);
+	return ans;
+}
+
+>>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
