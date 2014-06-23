@@ -6,10 +6,7 @@
 #ifndef SIMPLE_TEST_H
 #define SIMPLE_TEST_H
 
-<<<<<<< HEAD
-=======
 #include <vector>
->>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 #include <iostream>
 #include "test_utils.h"
 
@@ -77,13 +74,6 @@ void assert_bitwise_eq_helper(bool* v1,
   } \
   while (false);
 
-<<<<<<< HEAD
-#define test_case(suite_name, case_name) \
-  void test_case_ ## suite_name ## _ ## case_name()
-
-#define run_test_case(suite_name, case_name) \
-  test_case_ ## suite_name ## _ ## case_name()
-=======
 
 
 class TestCase {
@@ -122,7 +112,6 @@ class TestCaseRegisterer {
       #suite_name "_" #case_name, \
       tc_ ## suite_name ## _ ## case_name); \
   void tc_ ## suite_name ## _ ## case_name()
->>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 
 #endif // SIMPLE_TEST_H
 

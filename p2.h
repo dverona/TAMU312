@@ -31,11 +31,8 @@ bool* or8(bool* output, bool input1[8], bool input2[8]);
 bool* shiftLeft(bool* output, bool input[8]);
 bool* shiftRight(bool* output, bool input[8]);
 
-<<<<<<< HEAD
-=======
 bool* Oneto8bit(bool* output, bool input);
 bool Eightto1bit(bool output, bool* input);
 
->>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 #endif // P2_H
 

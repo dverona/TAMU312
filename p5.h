@@ -17,10 +17,7 @@ bool* mult(bool* output, bool input1[8], bool input2[8]);
 bool* divu(bool* output, bool input1[8], bool input2[8]);
 bool* div(bool* output, bool input1[8], bool input2[8]);
 
-<<<<<<< HEAD
-=======
 bool FirstBit(bool input[8]);
 
->>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
 #endif // P5_H
 

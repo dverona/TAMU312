@@ -247,33 +247,7 @@ test_case(p2, shiftRight) {
 }
 
 int main(int argc, char** argv) {
-<<<<<<< HEAD
-  run_test_case(basic_functions, And);
-  run_test_case(basic_functions, Or);
-  run_test_case(basic_functions, Not);
-  run_test_case(p1, XOR);
-  run_test_case(p1, Mux);
-  run_test_case(p1, Sum2);
-  run_test_case(p1, Sum3);
-  run_test_case(p1, CarryOut);
-  run_test_case(p1, Equal);
-  run_test_case(p2, getValue);
-  run_test_case(p2, writeValue);
-  run_test_case(p2, mux);
-  run_test_case(p2, addu);
-  run_test_case(p2, negate);
-  run_test_case(p2, subu);
-  run_test_case(p2, equal);
-  run_test_case(p2, lessthan);
-  run_test_case(p2, greaterthan);
-  run_test_case(p2, and8);
-  run_test_case(p2, or8);
-  run_test_case(p2, shiftLeft);
-  run_test_case(p2, shiftRight);
-
-=======
   TestCaseRegisterer::run_test_cases();
->>>>>>> 2156ffb32a8522585ea87d2d8436b26b9afd07c9
   std::cout << "Done." << std::endl;
   return 0;
 }
