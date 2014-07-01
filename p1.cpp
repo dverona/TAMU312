@@ -41,4 +41,3 @@ bool Sum(bool a, bool b, bool carry) {
 	bool ans = Sum(ab, carry);
 	return ans;
 }
-
