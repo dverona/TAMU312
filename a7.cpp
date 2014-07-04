@@ -28,12 +28,12 @@ void LI(bool* registrylocation[8], bool value[16]) {
 }
 
 
-bool** current = new bool*[4];
+//bool** current = new bool*[4];
 bool rs[8] = 0;
 bool rt[8] = 0;
 bool rd[8] = 0;
 
-void IF() {
+void IF(bool** current) {
 	instructionFetch();
 	current = IRSplit(IR);
 	if (current[0] == [0, 0, 0, 1, 1, 1, 1, 0]) current = IRSplit3(IR);
@@ -41,7 +41,7 @@ void IF() {
 }
 
 
-void ID() {
+void ID(bool** current) {
 	if (current[3]) {
 		rd = getRegistryValue(rs, current[1]);
 		rs = getRegistryValue(rt, current[2]);
@@ -54,20 +54,20 @@ void ID() {
 }
 
 
-void EX() {
+void EX(bool** current) {
 	if (current[3]) {
 		rd = alu(current[0], rs, rt);
 	}
 }
 
 
-void MEM() {
+void MEM(bool** current) {
 	if (!current[3]) {
 		mem(rt, rs, 0, 1);
 	}
 }
 
 
-void WB() {
+void WB(bool** current) {
 	if (current[3]) current[1] = rd;
 }

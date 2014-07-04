@@ -2,6 +2,7 @@
 #include <iostream>
 #include "p1.h"
 #include "p2.h"
+#include "test_utils.h"
 
 bool* Oneto8bit(bool* output, bool input) {
 	output[7] = input;
@@ -156,8 +157,11 @@ bool equal(bool input1[8], bool input2[8]) {
 // 8-bit Equality
 bool* equal(bool* output, bool input1[8], bool input2[8]) {
 	bool* neg2 = new bool[8];
+	bool ans = false;
 	negate(neg2, input2);
 	addu(output, input1, neg2);
+	ans = Not(Or(output[7], Or(output[6], Or(output[5], Or(output[4], Or(output[3], Or(output[2], Or(output[1], output[0]))))))));
+	output = Oneto8bit(output, ans);
 	return output;
 	//Add bitwise Not
 }
@@ -177,8 +181,8 @@ bool* greaterthan(bool* output, bool input1[8], bool input2[8]) {
 	// if input1 > input2, input1 - input2 == pos
 	bool* temp = new bool[8];
 	bool ans = false;
-	subu(temp, input1, input2);
-	ans = Mux(temp[0], 0, 1);
+	subu(temp, input2, input1);
+	ans = Mux(temp[7], 1, 0);
 	output = Oneto8bit(output, ans);
 	return output;
 }
@@ -196,12 +200,10 @@ bool lessthan(bool input1[8], bool input2[8]) {
 // 8-bit Less-Than
 bool* lessthan(bool* output, bool input1[8], bool input2[8]) {
 	// if input1 < input2, input1 - input2 == neg
-	bool* eq = new bool[8];
-	bool* gt = new bool[8];
+	bool* temp = new bool[8];
 	bool ans = false;
-	equal(eq, input1, input2);
-	greaterthan(gt, input1, input2);
-	ans = Not(And(eq, gt));
+	subu(temp, input1, input2);
+	ans = Mux(temp[7], 1, 0);
 	output = Oneto8bit(output, ans);
 	return output;
 }
@@ -249,6 +251,19 @@ bool* shiftLeft(bool* output, bool input[8]) {
 	return output;
 }
 
+bool* shiftLeft(bool* output, bool input[8], bool shamt[8]) {
+	input = invert(input);
+	int n = to_int8(shamt);
+	output[7] = input[n];
+	output[6] = input[n+1];
+	output[5] = input[n+2];
+	output[4] = input[n+3];
+	output[3] = input[n+4];
+	output[2] = input[n+5];
+	output[1] = input[n+6];
+	output[0] = 0;
+	return output;
+}
 
 // 8-bit right shift
 bool* shiftRight(bool* output, bool input[8]) {
@@ -261,5 +276,19 @@ bool* shiftRight(bool* output, bool input[8]) {
 	output[2] = input[4];
 	output[1] = input[5];
 	output[0] = input[6];
+	return output;	
+}
+
+bool* shiftRight(bool* output, bool input[8], bool shamt[8]) {
+	input = invert(input);
+	int n = to_int8(shamt);
+	output[0] = input[7-n-1];
+	output[1] = input[7-n];
+	output[2] = input[7-n+1];
+	output[3] = input[7-n+2];
+	output[4] = input[7-n+3];
+	output[5] = input[7-n+4];
+	output[6] = input[7-n+5];
+	output[7] = 0;
 	return output;	
 }

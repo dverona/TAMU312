@@ -140,9 +140,9 @@ test_case(p2, addu) {
   bool a[8], b[8], c[8];
   bool output[8];
 
-  to_bits8(a, 11);
-  to_bits8(b, 7);
-  to_bits8(c, 18);
+  str_to_bits8(a, "00001011");
+  str_to_bits8(b, "00000111");
+  str_to_bits8(c, "00010010");
   addu(output, a, b);
   assert_eq8(c, output);
 }

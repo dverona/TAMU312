@@ -37,7 +37,9 @@ test_case(p3, alu_addu) {
   bool op[8], a[8], b[8], c[8];
   bool output[8];
 
-  to_bits8(op, 16);
+  //to_bits8(op, 16);
+  op[0] = op[1] = op[2] = op[3] = op[5] = op[6] = op[7] = 0;
+  op[4] = 1;
   to_bits8(a, 47);
   to_bits8(b, 127);
   to_bits8(c, 174); // expected
@@ -176,7 +178,7 @@ test_case(p3, alu_srl) {
   assert_eq8(c, output);
 }
 
-test_case(p4, alu_add) {
+/*test_case(p4, alu_add) {
   bool op[8], a[8], b[8], c[8];
   bool output[8];
 
@@ -206,7 +208,7 @@ test_case(p4, alu_sub) {
   to_bits8(a, 120);
   to_bits8(b, -113);
   assert_exception(alu(op, output, a, b));
-}
+}*/
 
 test_case(p5, alu_multu) {
   bool op[8], a[8], b[8], c[16];

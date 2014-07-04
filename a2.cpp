@@ -58,14 +58,14 @@ void PrintValueInDecimal(bool byte[8]) {
 // 8-bit Mux
 bool* Mux8(bool* output, bool operation, bool input1[8], bool input2[8]) {
 	bool* ans = new bool[8];
-	ans[7] = Mux(operation, input1[7], input2[7]);
-	ans[6] = Mux(operation, input1[6], input2[6]);
-	ans[5] = Mux(operation, input1[5], input2[5]);
-	ans[4] = Mux(operation, input1[4], input2[4]);
-	ans[3] = Mux(operation, input1[3], input2[3]);
-	ans[2] = Mux(operation, input1[2], input2[2]);
-	ans[1] = Mux(operation, input1[1], input2[1]);
-	ans[0] = Mux(operation, input1[0], input2[0]);
+	ans[7] = Mux(operation, input2[7], input1[7]);
+	ans[6] = Mux(operation, input2[6], input1[6]);
+	ans[5] = Mux(operation, input2[5], input1[5]);
+	ans[4] = Mux(operation, input2[4], input1[4]);
+	ans[3] = Mux(operation, input2[3], input1[3]);
+	ans[2] = Mux(operation, input2[2], input1[2]);
+	ans[1] = Mux(operation, input2[1], input1[1]);
+	ans[0] = Mux(operation, input2[0], input1[0]);
 	output = ans;
 	return ans;
 }

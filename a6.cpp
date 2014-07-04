@@ -6,7 +6,7 @@
 #include <fstream>
 
 
-// Helper Functiona
+// Helper Functions
 
 int toDecimal(int output, bool* half) {
 	output = 0;
@@ -500,71 +500,71 @@ bool IR[32];				// instruction register
 
 
 // reads bool[64] at instructionMemory[PC] and writes it into IR
-void instructionFetch() {
-	IR[0] = ins[PC];
-	IR[1] = ins[PC+1];
-	IR[2] = ins[PC+2];
-	IR[3] = ins[PC+3];
-	IR[4] = ins[PC+4];
-	IR[5] = ins[PC+5];
-	IR[6] = ins[PC+6];
-	IR[7] = ins[PC+7];
-	IR[8] = ins[PC+8];
-	IR[9] = ins[PC+9];
-	IR[10] = ins[PC+10];
-	IR[11] = ins[PC+11];
-	IR[12] = ins[PC+12];
-	IR[13] = ins[PC+13];
-	IR[14] = ins[PC+14];
-	IR[15] = ins[PC+15];
-	IR[16] = ins[PC+16];
-	IR[17] = ins[PC+17];
-	IR[18] = ins[PC+18];
-	IR[19] = ins[PC+19];
-	IR[20] = ins[PC+20];
-	IR[21] = ins[PC+21];
-	IR[22] = ins[PC+22];
-	IR[23] = ins[PC+23];
-	IR[24] = ins[PC+24];
-	IR[25] = ins[PC+25];
-	IR[26] = ins[PC+26];
-	IR[27] = ins[PC+27];
-	IR[28] = ins[PC+28];
-	IR[29] = ins[PC+29];
-	IR[30] = ins[PC+30];
-	IR[31] = ins[PC+31];
-	IR[32] = ins[PC+32];
-	IR[33] = ins[PC+33];
-	IR[34] = ins[PC+34];
-	IR[35] = ins[PC+35];
-	IR[36] = ins[PC+36];
-	IR[37] = ins[PC+37];
-	IR[38] = ins[PC+38];
-	IR[39] = ins[PC+39];
-	IR[40] = ins[PC+40];
-	IR[41] = ins[PC+41];
-	IR[42] = ins[PC+42];
-	IR[43] = ins[PC+43];
-	IR[44] = ins[PC+44];
-	IR[45] = ins[PC+45];
-	IR[46] = ins[PC+46];
-	IR[47] = ins[PC+47];
-	IR[48] = ins[PC+48];
-	IR[49] = ins[PC+49];
-	IR[50] = ins[PC+50];
-	IR[51] = ins[PC+51];
-	IR[52] = ins[PC+52];
-	IR[53] = ins[PC+53];
-	IR[54] = ins[PC+54];
-	IR[55] = ins[PC+55];
-	IR[56] = ins[PC+56];
-	IR[57] = ins[PC+57];
-	IR[58] = ins[PC+58];
-	IR[59] = ins[PC+59];
-	IR[60] = ins[PC+60];
-	IR[61] = ins[PC+61];
-	IR[62] = ins[PC+62];
-	IR[63] = ins[PC+63];
+void instructionFetch(int num) {
+	IR[0] = ins[num];
+	IR[1] = ins[num+1];
+	IR[2] = ins[num+2];
+	IR[3] = ins[num+3];
+	IR[4] = ins[num+4];
+	IR[5] = ins[num+5];
+	IR[6] = ins[num+6];
+	IR[7] = ins[num+7];
+	IR[8] = ins[num+8];
+	IR[9] = ins[num+9];
+	IR[10] = ins[num+10];
+	IR[11] = ins[num+11];
+	IR[12] = ins[num+12];
+	IR[13] = ins[num+13];
+	IR[14] = ins[num+14];
+	IR[15] = ins[num+15];
+	IR[16] = ins[num+16];
+	IR[17] = ins[num+17];
+	IR[18] = ins[num+18];
+	IR[19] = ins[num+19];
+	IR[20] = ins[num+20];
+	IR[21] = ins[num+21];
+	IR[22] = ins[num+22];
+	IR[23] = ins[num+23];
+	IR[24] = ins[num+24];
+	IR[25] = ins[num+25];
+	IR[26] = ins[num+26];
+	IR[27] = ins[num+27];
+	IR[28] = ins[num+28];
+	IR[29] = ins[num+29];
+	IR[30] = ins[num+30];
+	IR[31] = ins[num+31];
+	IR[32] = ins[num+32];
+	IR[33] = ins[num+33];
+	IR[34] = ins[num+34];
+	IR[35] = ins[num+35];
+	IR[36] = ins[num+36];
+	IR[37] = ins[num+37];
+	IR[38] = ins[num+38];
+	IR[39] = ins[num+39];
+	IR[40] = ins[num+40];
+	IR[41] = ins[num+41];
+	IR[42] = ins[num+42];
+	IR[43] = ins[num+43];
+	IR[44] = ins[num+44];
+	IR[45] = ins[num+45];
+	IR[46] = ins[num+46];
+	IR[47] = ins[num+47];
+	IR[48] = ins[num+48];
+	IR[49] = ins[num+49];
+	IR[50] = ins[num+50];
+	IR[51] = ins[num+51];
+	IR[52] = ins[num+52];
+	IR[53] = ins[num+53];
+	IR[54] = ins[num+54];
+	IR[55] = ins[num+55];
+	IR[56] = ins[num+56];
+	IR[57] = ins[num+57];
+	IR[58] = ins[num+58];
+	IR[59] = ins[num+59];
+	IR[60] = ins[num+60];
+	IR[61] = ins[num+61];
+	IR[62] = ins[num+62];
+	IR[63] = ins[num+63];
 }
 
 
