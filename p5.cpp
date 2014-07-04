@@ -62,11 +62,12 @@ bool* multu(bool* output, bool i1[8], bool i2[8]) {
 	input1 = shiftLeft(input1, input1);
 	input2 = shiftRight(input2, input2);
 
-	/*tmp = addu(tmp, ans, input1);
+	tmp = addu(tmp, ans, input1);
 	ans = mux(ans, FirstBit(input2), tmp, ans);
 	input1 = shiftLeft(input1, input1);
 	input2 = shiftRight(input2, input2);
-*/
+
+
 	output[0] = ans[0];
 	output[1] = ans[1];
 	output[2] = ans[2];
@@ -75,6 +76,7 @@ bool* multu(bool* output, bool i1[8], bool i2[8]) {
 	output[5] = ans[5];
 	output[6] = ans[6];
 	output[7] = ans[7];
+
 
 	return output;
 }
@@ -153,7 +155,66 @@ bool* divu(bool* output, bool dividend[8], bool input2[8]) {
 // Multiply and Divide Signed
 
 bool* mult(bool* output, bool input1[8], bool input2[8]) {
-  // TODO
+	bool* ans = new bool[8];
+	bool* tmp = new bool[8];
+	//bool* input1 = new bool[8];
+	//bool* input2 = new bool[8];
+	ans[0] = ans[1] = ans[2] = ans[3] = ans[4] = ans[5] = ans[6] = ans[7] = 0;
+
+	//input1 = invert(i1);
+	//input2 = invert(i2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, input2[7], tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+	tmp = addu(tmp, ans, input1);
+	ans = mux(ans, FirstBit(input2), tmp, ans);
+	input1 = shiftLeft(input1, input1);
+	input2 = shiftRight(input2, input2);
+
+
+
+	output[0] = ans[0];
+	output[1] = ans[1];
+	output[2] = ans[2];
+	output[3] = ans[3];
+	output[4] = ans[4];
+	output[5] = ans[5];
+	output[6] = ans[6];
+	output[7] = ans[7];
+
 	return output;
 }
 
