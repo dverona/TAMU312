@@ -177,8 +177,8 @@ test_case(p3, alu_srl) {
   alu(op, output, a, b);
   assert_eq8(c, output);
 }
-
-/*test_case(p4, alu_add) {
+/*
+test_case(p4, alu_add) {
   bool op[8], a[8], b[8], c[8];
   bool output[8];
 
@@ -208,8 +208,8 @@ test_case(p4, alu_sub) {
   to_bits8(a, 120);
   to_bits8(b, -113);
   assert_exception(alu(op, output, a, b));
-}*/
-
+}
+*/
 test_case(p5, alu_multu) {
   bool op[8], a[8], b[8], c[16];
   bool output[16];
